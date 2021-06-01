@@ -1,0 +1,8 @@
+<h1> Show tasks details </h1>
+
+    <p><%= @task.id %></p>
+    <p><%= @task.name %></p>
+    <p><%= @task.description %></p>
+    <p><%= @task.due_date %></p>
+
+<%= link_to 'Destroy', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' } %>
