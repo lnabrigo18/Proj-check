@@ -1,12 +1,13 @@
 class CategoriesController < ApplicationController
   # before_action :require_admin, except: [:index, :show]
+  before_action :authenticate_user!
 
   def new
-    @category = Category.new
+    @category = current_user.categories.build
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
     if @category.save
       flash[:notice] = "Category was successfully created"
       redirect_to categories_path
@@ -30,7 +31,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all.order(created_at: :desc)
+    @categories = current_user.categories.all.order(created_at: :desc)
   end
 
   def show
@@ -43,6 +44,11 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
   
+  def dashboard
+    # @categories = current_user.categories.all.order(created_at: :desc)
+    @tasks = Task.all
+  end
+
   private
 
   def category_params

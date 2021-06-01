@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :get_category, only: [ :create, :edit, :update, :destroy ] 
+    before_action :get_category, only: [ :create, :edit, :update, :destroy, :new ] 
 
     def show
         @task = Task.find(params[:id])
