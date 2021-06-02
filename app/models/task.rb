@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
     belongs_to :category
+    has_many :users, through: :categories
     validates :name, presence: true, uniqueness: true, length: {minimum: 3, maximum: 100}
     validates :description, length: {maximum: 2000}
     validate :due_date_cannot_be_in_the_past

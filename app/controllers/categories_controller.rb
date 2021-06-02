@@ -8,10 +8,12 @@ class CategoriesController < ApplicationController
 
   def create
     @category = current_user.categories.build(category_params)
-    if @category.save
+    if @category.valid?
+      @category.save
       flash[:notice] = "Category was successfully created"
       redirect_to categories_path
     else
+      flash.now[:error] = @category.errors.full_messages[0]
       render 'new'
     end
   end
@@ -46,7 +48,7 @@ class CategoriesController < ApplicationController
   
   def dashboard
     # @categories = current_user.categories.all.order(created_at: :desc)
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   private

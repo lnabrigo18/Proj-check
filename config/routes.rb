@@ -8,5 +8,5 @@ Rails.application.routes.draw do
       end
         resources :tasks
     end
-  root "categories#index"
+  root "categories#dashboard"
 end

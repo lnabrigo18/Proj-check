@@ -1,6 +1,6 @@
 <div class="d-inline-flex p-2">
   <div class="btn-group-vertical mt-2 ms-2 custom5">
-    <a href="#" class="btn btn-primary custom">Dashboard</a>
+    <a href="/categories/dashboard" class="btn btn-primary custom">Dashboard</a>
     <a href="#" class="btn btn-primary custom">Profile</a>
     <a href="/categories/new" class="btn btn-primary custom">Create Project</a>
     <a href="/categories" class="btn btn-primary custom">Projects</a>
@@ -10,10 +10,10 @@
   <h4 class="card-header text-decoration">Edit Project Details</h4>
   <div class="form-group mt-2 custom3">
     <%= form_with model: @category, local: true do |f| %>
-      <p class="row custom4 ms-2">
+      <p class="row custom4-5 ms-2">
         <%= f.text_field :name%>
       </p>
-      <p class="row custom4 ms-2">
+      <p class="row custom4-5 ms-2">
         <%= f.text_area :description%>
       </p>
       <p class="ms-2">

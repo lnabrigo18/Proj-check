@@ -1,11 +1,33 @@
-<table>
-<% @tasks.each do |task| %>
-    <% if task.due_date == Date.today %>
-    <tr>
-    <td><%=task.name%></td>
-    <td><%= task.due_date.strftime("%m/%d") %></td>
-    <td><%= link_to "Go back", category_path(task.category_id) %></td>
-    </tr>
-  <% end %>
-  <% end %>
-</table>
+<div class="d-inline-flex p-2">
+  <div class="btn-group-vertical mt-2 ms-2 custom5">
+    <a href="/categories/dashboard" class="btn btn-primary custom">Dashboard</a>
+    <a href="#" class="btn btn-primary custom">Profile</a>
+    <a href="/categories/new" class="btn btn-primary custom">Create Project</a>
+    <a href="/categories" class="btn btn-primary custom">Projects</a>
+  </div>
+
+    <div class="card-body ms-3>
+      <p class="text-center" style="font-size:20px">Tasks for Today</p>
+          <table class="table table-warning custom4-5">
+          <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Deadline</th>
+              </tr>
+          </thead>
+          <tbody>
+          
+          <% @tasks.each do |task| %>
+              <% if task.due_date == Date.today %>
+              <tr class="table-active">
+              <td><%= link_to task.name, category_path(task.category_id) %></td>
+              <td><%= task.due_date.strftime("%m/%d") %></td>
+              </tr>
+            <% end %>
+            <% end %>
+          </table>
+      </div>
+  </div>
+
+
+
