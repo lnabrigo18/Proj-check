@@ -1,33 +1,28 @@
-<div class="d-inline-flex p-2">
-  <div class="btn-group-vertical mt-2 ms-2 custom5">
-    <a href="/categories/dashboard" class="btn btn-primary custom">Dashboard</a>
-    <a href="#" class="btn btn-primary custom">Profile</a>
-    <a href="/categories/new" class="btn btn-primary custom">Create Project</a>
-    <a href="/categories" class="btn btn-primary custom">Projects</a>
-  </div>
-
-    <div class="card-body ms-3>
-      <p class="text-center" style="font-size:20px">Tasks for Today</p>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-1 me-5">
+      <%= render "partials/sidebar"%>
+    </div>
+    <div class="col-md-4 ms-3 mt-2">
+        <p class="text-center" style="font-size:30px">Tasks for Today</p>
           <table class="table table-warning custom4-5">
-          <thead>
+            <thead>
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Deadline</th>
               </tr>
-          </thead>
-          <tbody>
-          
-          <% @tasks.each do |task| %>
-              <% if task.due_date == Date.today %>
-              <tr class="table-active">
-              <td><%= link_to task.name, category_path(task.category_id) %></td>
-              <td><%= task.due_date.strftime("%m/%d") %></td>
-              </tr>
-            <% end %>
-            <% end %>
+            </thead>
+            <tbody>
+              <% @tasks.each do |task| %>
+                <% if task.due_date == Date.today %>
+                  <tr class="table-active">
+                    <td><%= link_to task.name, category_path(task.category_id) %></td>
+                    <td><%= task.due_date.strftime("%m/%d") %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
           </table>
-      </div>
+    </div>          
   </div>
-
-
-
+</div> <!-- container -->

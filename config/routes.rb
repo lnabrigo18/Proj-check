@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   devise_for :users
     resources :categories do
       collection do
@@ -8,5 +9,5 @@ Rails.application.routes.draw do
       end
         resources :tasks
     end
-  root "categories#dashboard"
+  root "home#index"
 end

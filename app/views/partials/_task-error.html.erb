@@ -1,0 +1,9 @@
+<div class="alert-danger w-100">
+    <% if @task.errors.any? %>
+            <ul class="fa-ul">    
+                <%@task.errors.full_messages.each do |msg| %>
+                    <li><i class="fas fa-exclamation-triangle"></i><%= msg %></li> 
+                <% end %> 
+            </ul>
+    <% end %>
+</div>

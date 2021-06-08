@@ -21,21 +21,21 @@
  */
  .custom {
     width: 150px !important;
+
 }
 .custom2 {
     width: 200px !important;
     height: 210px !important;
 }
 .custom3 {
-    height: 210px !important;
     width: 500px !important;
 }
 .custom4 {
     width: 470px !important;
     height: 210px !important;
 }
-.custom4-5 {
-    width: 470px !important;
+.custom7 {
+    width: 475px !important;
 }
 .custom5 {
     height: 210px !important;
@@ -45,9 +45,11 @@
     height: 200px;
 }
 
-// .alert-dismissible {
-//     padding-left: $close-font-size + $alert-padding-x * 2;
-//   }
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+ }
 
 // a:link { text-decoration: none; }
 // a:visited { text-decoration: none; }

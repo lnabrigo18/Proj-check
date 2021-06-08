@@ -22,13 +22,18 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rexml', '~> 3.2', '>= 3.2.4'
+#add font-awesome gem
 gem 'font-awesome-sass', '~> 5.15.1'
+#add devise gem
 gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+#add jquery-rails gem
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+gem 'jquery-rails', '~> 4.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

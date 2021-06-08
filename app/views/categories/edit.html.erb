@@ -1,24 +1,32 @@
-<div class="d-inline-flex p-2">
-  <div class="btn-group-vertical mt-2 ms-2 custom5">
-    <a href="/categories/dashboard" class="btn btn-primary custom">Dashboard</a>
-    <a href="#" class="btn btn-primary custom">Profile</a>
-    <a href="/categories/new" class="btn btn-primary custom">Create Project</a>
-    <a href="/categories" class="btn btn-primary custom">Projects</a>
-  </div>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-1 me-5">
+      <%= render "partials/sidebar"%>
+    </div>
+    <div class="col-md-4 ms-3">
+      <div class="card text-black bg-warning ms-2 mt-2 mb-2 custom3">
+        <h4 class="card-header text-decoration">Edit Project</h4>
+        <div class="mt-2">
+        <%= render "partials/error" %>
+          <%= form_with model: @category, local: true do |f| %>
+            <div class="form-group ms-2 custom7">
+              <p>
+                <%= f.text_field :name, placeholder: "Edit Project Title", class: "form-control" %>
+              </p>
+            </div>
 
-<div class="card text-black bg-warning ms-2 mt-2 mb-2 custom3">
-  <h4 class="card-header text-decoration">Edit Project Details</h4>
-  <div class="form-group mt-2 custom3">
-    <%= form_with model: @category, local: true do |f| %>
-      <p class="row custom4-5 ms-2">
-        <%= f.text_field :name%>
-      </p>
-      <p class="row custom4-5 ms-2">
-        <%= f.text_area :description%>
-      </p>
-      <p class="ms-2">
-      <%= submit_tag("Update Project") %>
-      </p>
-    <% end %> 
+            <div class="form-group ms-2 custom7">
+              <p>
+                <%= f.text_area :description, placeholder: "Edit Project Description", class: "form-control" %>
+              </p>
+            </div>
+
+            <p class="ms-2">
+            <%= submit_tag("Update Project") %>
+            </p>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
   </div>
-</div>

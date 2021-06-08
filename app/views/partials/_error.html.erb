@@ -1,0 +1,13 @@
+<div class="alert-danger">
+  <% if @category.errors.any? %>
+    <p class="text-center">
+        <ul class="fa-ul">    
+            <%@category.errors.full_messages.each do |msg| %>
+                <li><i class="fas fa-exclamation-triangle"></i><%= msg %></li> 
+            <% end %> 
+        </ul>
+    </p>
+  <% end %>
+</div>
+
+

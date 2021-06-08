@@ -17,8 +17,12 @@ class TasksController < ApplicationController
     def create        
         @task = @category.tasks.new(params.require(:task).permit(:name, :description, :due_date))
 
-        if @task.save
+        if @task.valid? 
+            @task.save
+            flash[:notice] = "Task created successfully!"
             redirect_to category_path(@category)
+        else
+            render 'new'
         end
     end
 
@@ -29,8 +33,9 @@ class TasksController < ApplicationController
 
     def update
         @task = @category.tasks.find(params[:id])
-        if @task.update(task_params)
-          flash[:notice] = "Task updated"
+        if @task.valid? 
+          @task.update(task_params)
+          flash[:notice] = "Task updated successfully!"
           redirect_to @category
         else
           render 'edit'

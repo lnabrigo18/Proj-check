@@ -1,47 +1,43 @@
-<div class="d-inline-flex p-2">
-  <div class="btn-group-vertical mt-2 ms-2 custom5">
-    <a href="/categories/dashboard" class="btn btn-primary custom">Dashboard</a>
-    <a href="#" class="btn btn-primary custom">Profile</a>
-    <a href="/categories/new" class="btn btn-primary custom">Create Project</a>
-    <a href="/categories" class="btn btn-primary custom">Projects</a>
-  </div>
-
-  
-    <div class="card border-warning ms-2 mt-2 mb-2 custom4-5">  
-      <h4 class="card-header text-decoration"><%= @category.name %></h4>
-    <div class="card-body">
-      <p class="card-title"><%= @category.description%></p>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-1 me-5">
+      <%= render "partials/sidebar"%>
     </div>
+    <div class="col-md-5 ms-3 mt-2">
+        <div class="card border-warning">  
+            <h4 class="card-header text-decoration"><%= @category.name%></h4>
+            <div class="card-body">
+                <p class="card-title"><%= @category.description%></p>
+            </div>
+        </div>        
     </div>
-    <h1></h1>
-    <div class="card-body ms-3>
-      <p class="text-center" style="font-size:20px">Tasks
-        <a href="<%= new_category_task_path(@category) %>"><i class="far fa-calendar-plus" 
-        data-toggle="tooltip" data-placement="bottom" title="Add a task" 
-        style="font-size:20px"></i></a>
-      </p>
-          <table class="table table-warning custom4-5">
+    <div class="col-md-4">
+        <p class="text-center" style="font-size:20px">Tasks
+                        <a href="<%= new_category_task_path(@category) %>"><i class="far fa-calendar-plus" 
+                        data-toggle="tooltip" data-placement="bottom" title="Add a task" 
+                        style="font-size:20px"></i></a>
+        </p>
+        <table class="table table-warning custom4-5">
           <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Deadline</th>
-                <th scope="col">Action</th>
-              </tr>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Deadline</th>
+              <th scope="col">Action</th>
+            </tr>
           </thead>
           <tbody>
-          
-          <% @category.tasks.order(due_date: :asc).each do |task| %>
+            <% @category.tasks.order(due_date: :asc).each do |task| %>
               <tr class="table-active">
                 <th scope="row"><%= task.name %></th>
-                <td><%= task.due_date.strftime("%m/%d") %></td>
-                <td><a href="<%= edit_category_task_path(@category, task) %>"><i class="fas fa-edit" 
-                data-toggle="tooltip" data-placement="bottom" title="Edit Task" 
-                style="font-size:16px"></i></a>
-                <%= link_to category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } do %> <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Delete Task" style="font-size:16px"></i><% end %></td>              
+                  <td><%= task.due_date.strftime("%m/%d") %></td>
+                  <td><a href="<%= edit_category_task_path(@category, task) %>"><i class="fas fa-edit" 
+                      data-toggle="tooltip" data-placement="bottom" title="Edit Task" 
+                      style="font-size:16px"></i></a>
+                      <%= link_to category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } do %> <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Delete Task" style="font-size:16px"></i><% end %></td>              
               </tr>  
-          <% end %>
-          </table>
-      </div>
+            <% end %>
+          </tbody>
+        </table>
+    </div>          
   </div>
-  
-
+</div> <!-- container -->
